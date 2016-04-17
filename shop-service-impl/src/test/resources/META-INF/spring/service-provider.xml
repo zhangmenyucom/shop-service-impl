@@ -10,7 +10,7 @@
 	<dubbo:provider serialization="kryo" codec="dubbo" server="netty" client="netty" threadpool="cached"
 		connections="1" loadbalance="consistenthash" cluster="failfast" delay="-1" timeout="5000" />
 		 
-    <dubbo:registry protocol="zookeeper" address="192.168.1.106:2181"/>
+    <dubbo:registry protocol="zookeeper" address="192.168.80.129:2181"/>
 	
     <dubbo:monitor protocol="registry"/>
 
