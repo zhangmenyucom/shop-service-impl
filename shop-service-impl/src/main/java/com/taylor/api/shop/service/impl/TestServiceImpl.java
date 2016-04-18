@@ -13,4 +13,15 @@ public class TestServiceImpl extends BaseServiceImpl<Test> implements TestServic
         System.out.println("hello world!");
     }
 
+    /**
+     * @desc getHello(测试)
+     * @return
+     * @author taylor
+     * @date 2016年4月17日 下午7:33:56
+     */
+    @Override
+    public String getHello() {
+        return "hello world!";
+    }
+
 }

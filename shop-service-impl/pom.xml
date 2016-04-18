@@ -28,6 +28,11 @@
 			<groupId>com.taylor.api</groupId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.taylor.api</groupId>
+			<artifactId>api-common-utils</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!-- dubbo -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -70,6 +75,11 @@
 			<groupId>javassist</groupId>
 			<artifactId>javassist</artifactId>
 			<version>3.11.0.GA</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -157,16 +167,16 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<jdbc.mall_visa.driverClass>com.mysql.jdbc.Driver</jdbc.mall_visa.driverClass>
-				<!-- mall_visa 读库 -->
-				<jdbc.mall_visa.reader.url><![CDATA[jdbc:mysql://192.168.37.11:3306/mall_visa?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.mall_visa.reader.url>
-				<jdbc.mall_visa.reader.username>testUser</jdbc.mall_visa.reader.username>
-				<jdbc.mall_visa.reader.password>test1234</jdbc.mall_visa.reader.password>
+				<jdbc.shop.driverClass>com.mysql.jdbc.Driver</jdbc.shop.driverClass>
+				<!-- shop 读库 -->
+				<jdbc.shop.reader.url><![CDATA[jdbc:mysql://192.168.80.129:3306/shop?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.shop.reader.url>
+				<jdbc.shop.reader.username>testUser</jdbc.shop.reader.username>
+				<jdbc.shop.reader.password>test1234</jdbc.shop.reader.password>
 
-				<!-- mall_visa 写库 -->
-				<jdbc.mall_visa.write.url><![CDATA[jdbc:mysql://192.168.37.11:3306/mall_visa?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.mall_visa.write.url>
-				<jdbc.mall_visa.write.username>testUser</jdbc.mall_visa.write.username>
-				<jdbc.mall_visa.write.password>test1234</jdbc.mall_visa.write.password>
+				<!-- shop 写库 -->
+				<jdbc.shop.write.url><![CDATA[jdbc:mysql://192.168.80.129:3306/shop?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.shop.write.url>
+				<jdbc.shop.write.username>testUser</jdbc.shop.write.username>
+				<jdbc.shop.write.password>test1234</jdbc.shop.write.password>
 
 				<!-- 日志 -->
 				<log4j.root.logger>info,DEBUG,stdout,DebugLogFile,CONSOLE</log4j.root.logger>
@@ -174,25 +184,22 @@
 				<!-- dubbo -->
 				<dubbo.protocol.port>20552</dubbo.protocol.port>
 				<dubbo.registry.address>192.168.80.129:2181</dubbo.registry.address>
-
-				<!-- memcached配置 -->
-				<horizon.memcached.address>192.168.37.12:11211</horizon.memcached.address>
 			</properties>
 		</profile>
 		<profile>
 			<id>test</id>
 			<properties>
 				<maven.test.skip>true</maven.test.skip>
-				<jdbc.mall_visa.driverClass>com.mysql.jdbc.Driver</jdbc.mall_visa.driverClass>
-				<!-- mall_visa 读库 -->
-				<jdbc.mall_visa.reader.url><![CDATA[jdbc:mysql://192.168.37.11:3306/mall_visa?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.mall_visa.reader.url>
-				<jdbc.mall_visa.reader.username>testUser</jdbc.mall_visa.reader.username>
-				<jdbc.mall_visa.reader.password>test1234</jdbc.mall_visa.reader.password>
+				<jdbc.shop.driverClass>com.mysql.jdbc.Driver</jdbc.shop.driverClass>
+				<!-- shop 读库 -->
+				<jdbc.shop.reader.url><![CDATA[jdbc:mysql://192.168.80.129:3306/shop?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.shop.reader.url>
+				<jdbc.shop.reader.username>testUser</jdbc.shop.reader.username>
+				<jdbc.shop.reader.password>test1234</jdbc.shop.reader.password>
 
-				<!-- mall_visa 写库 -->
-				<jdbc.mall_visa.write.url><![CDATA[jdbc:mysql://192.168.37.11:3306/mall_visa?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.mall_visa.write.url>
-				<jdbc.mall_visa.write.username>testUser</jdbc.mall_visa.write.username>
-				<jdbc.mall_visa.write.password>test1234</jdbc.mall_visa.write.password>
+				<!-- shop 写库 -->
+				<jdbc.shop.write.url><![CDATA[jdbc:mysql://192.168.80.129:3306/shop?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.shop.write.url>
+				<jdbc.shop.write.username>testUser</jdbc.shop.write.username>
+				<jdbc.shop.write.password>test1234</jdbc.shop.write.password>
 
 				<!-- 日志 -->
 				<log4j.root.logger>info,DEBUG,stdout,DebugLogFile,CONSOLE</log4j.root.logger>
@@ -201,23 +208,21 @@
 				<dubbo.protocol.port>20554</dubbo.protocol.port>
 				<dubbo.registry.address>192.168.80.129:2181</dubbo.registry.address>
 
-				<!-- memcached配置 -->
-				<horizon.memcached.address>192.168.37.12:11211</horizon.memcached.address>
 			</properties>
 		</profile>
 		<profile>
 			<id>prd</id>
 			<properties>
-				<jdbc.mall_visa.driverClass>com.mysql.jdbc.Driver</jdbc.mall_visa.driverClass>
-				<!-- mall_visa 读库 -->
-				<jdbc.mall_visa.reader.url><![CDATA[jdbc:mysql://db.mall.m:3307/mall_visa?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.mall_visa.reader.url>
-				<jdbc.mall_visa.reader.username>u_mall</jdbc.mall_visa.reader.username>
-				<jdbc.mall_visa.reader.password>mALl3c2Bb7A2hr61B1q</jdbc.mall_visa.reader.password>
+				<jdbc.shop.driverClass>com.mysql.jdbc.Driver</jdbc.shop.driverClass>
+				<!-- shop 读库 -->
+				<jdbc.shop.reader.url><![CDATA[jdbc:mysql://192.168.80.129:3306/shop?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.shop.reader.url>
+				<jdbc.shop.reader.username>testUser</jdbc.shop.reader.username>
+				<jdbc.shop.reader.password>test1234</jdbc.shop.reader.password>
 
-				<!-- mall_visa 写库 -->
-				<jdbc.mall_visa.write.url><![CDATA[jdbc:mysql://db.mall.m:3307/mall_visa?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.mall_visa.write.url>
-				<jdbc.mall_visa.write.username>u_mall</jdbc.mall_visa.write.username>
-				<jdbc.mall_visa.write.password>mALl3c2Bb7A2hr61B1q</jdbc.mall_visa.write.password>
+				<!-- shop 写库 -->
+				<jdbc.shop.write.url><![CDATA[jdbc:mysql://192.168.80.129:3306/shop?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.shop.write.url>
+				<jdbc.shop.write.username>testUser</jdbc.shop.write.username>
+				<jdbc.shop.write.password>test1234</jdbc.shop.write.password>
 
 				<!-- 日志 -->
 				<log4j.root.logger>error,stdout,ErrrorLogFile,CONSOLE</log4j.root.logger>
@@ -225,35 +230,28 @@
 				<!-- dubbo -->
 				<dubbo.protocol.port>20556</dubbo.protocol.port>
 				<dubbo.registry.address>192.168.80.129:2181</dubbo.registry.address>
-
-				<!-- memcached配置 -->
-				<horizon.memcached.address>mem.public.a:12000</horizon.memcached.address>
-
 			</properties>
 		</profile>
 		<profile>
 			<id>pro</id>
 			<properties>
-				<jdbc.mall_visa.driverClass>com.mysql.jdbc.Driver</jdbc.mall_visa.driverClass>
-				<!-- mall_visa 读库 -->
-				<jdbc.mall_visa.reader.url><![CDATA[jdbc:mysql://db.mall.m:3307/mall_visa?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.mall_visa.reader.url>
-				<jdbc.mall_visa.reader.username>u_mall</jdbc.mall_visa.reader.username>
-				<jdbc.mall_visa.reader.password>mALl3c2Bb7A2hr61B1q</jdbc.mall_visa.reader.password>
+				<jdbc.shop.driverClass>com.mysql.jdbc.Driver</jdbc.shop.driverClass>
+				<!-- shop 读库 -->
+				<jdbc.shop.reader.url><![CDATA[jdbc:mysql://db.mall.m:3307/shop?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.shop.reader.url>
+				<jdbc.shop.reader.username>u_mall</jdbc.shop.reader.username>
+				<jdbc.shop.reader.password>mALl3c2Bb7A2hr61B1q</jdbc.shop.reader.password>
 
-				<!-- mall_visa 写库 -->
-				<jdbc.mall_visa.write.url><![CDATA[jdbc:mysql://db.mall.m:3307/mall_visa?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.mall_visa.write.url>
-				<jdbc.mall_visa.write.username>u_mall</jdbc.mall_visa.write.username>
-				<jdbc.mall_visa.write.password>mALl3c2Bb7A2hr61B1q</jdbc.mall_visa.write.password>
+				<!-- shop 写库 -->
+				<jdbc.shop.write.url><![CDATA[jdbc:mysql://192.168.80.129:3306/shop?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;connectTimeout=2000&amp;socketTimeout=20000&amp;zeroDateTimeBehavior=convertToNull]]></jdbc.shop.write.url>
+				<jdbc.shop.write.username>u_mall</jdbc.shop.write.username>
+				<jdbc.shop.write.password>mALl3c2Bb7A2hr61B1q</jdbc.shop.write.password>
 
 				<!-- 日志 -->
 				<log4j.root.logger>error,stdout,ErrrorLogFile,CONSOLE</log4j.root.logger>
 
 				<!-- dubbo -->
 				<dubbo.protocol.port>20558</dubbo.protocol.port>
-				<dubbo.registry.address>10.171.35.204:2181,10.252.33.105:2181</dubbo.registry.address>
-
-				<!-- memcached配置 -->
-				<horizon.memcached.address>mem.public.a:12000</horizon.memcached.address>
+				<dubbo.registry.address>192.168.80.129:2181</dubbo.registry.address>
 
 			</properties>
 		</profile>

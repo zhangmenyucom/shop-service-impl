@@ -18,4 +18,6 @@
     
     <dubbo:service interface="com.taylor.api.shop.service.TestService" ref="testServiceImpl" protocol="dubbo" delay="-1" version="${service.version}"/>
     
+    <dubbo:service interface="com.taylor.api.shop.service.ShopUserService" ref="shopUserServiceImpl" protocol="dubbo" delay="-1" version="${service.version}"/>
+    
 	</beans>

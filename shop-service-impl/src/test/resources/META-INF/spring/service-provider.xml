@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-    <dubbo:application name="service-shop" owner="fei" organization="com.taylor"/>
+    <dubbo:application name="service-shop" owner="taylor" organization="com.taylor"/>
 
 	<dubbo:provider serialization="kryo" codec="dubbo" server="netty" client="netty" threadpool="cached"
 		connections="1" loadbalance="consistenthash" cluster="failfast" delay="-1" timeout="5000" />
@@ -17,4 +17,6 @@
     <dubbo:protocol name="dubbo" serialization="kryo" port="20552"/>
     
     <dubbo:service interface="com.taylor.api.shop.service.TestService" ref="testServiceImpl" protocol="dubbo" delay="-1" version="0.0.1"/>
+    
+    <dubbo:service interface="com.taylor.api.shop.service.ShopUserService" ref="shopUserServiceImpl" protocol="dubbo" delay="-1" version="0.0.1"/>
 </beans>

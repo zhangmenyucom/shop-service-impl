@@ -1,55 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration    
       PUBLIC "-//www.mybatis.org//DTD Config 3.0//EN"
-      "http://www.mybatis.org/dtd/mybatis-3-config.dtd"> 
+      "http://www.mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
 	<properties resource="jdbc.properties" />
-	
-	<!-- 改变Ibatis运行时的行为 -->   
-	<settings>   
+
+	<!-- 改变Ibatis运行时的行为 -->
+	<settings>
 		<setting name="cacheEnabled" value="true" />
-		<setting name="lazyLoadingEnabled" value="false" /> 
+		<setting name="lazyLoadingEnabled" value="false" />
 		<setting name="multipleResultSetsEnabled" value="true" />
 		<setting name="useColumnLabel" value="true" />
 		<setting name="useGeneratedKeys" value="false" />
 		<setting name="defaultExecutorType" value="SIMPLE" />
 		<setting name="defaultStatementTimeout" value="25000" />
 	</settings>
-	
-	<environments default="visaWrite">
-		<environment id="visaReader">   
-			<transactionManager type="JDBC"/>   
-			<dataSource type="POOLED" >     
-				<property name="driver" value="${jdbc.mall_visa.driverClass}"/>    
-				<property name="url" value="${jdbc.mall_visa.reader.url}"/>   
-				<property name="username" value="${jdbc.mall_visa.reader.username}" />
-				<property name="password" value="${jdbc.mall_visa.reader.password}" />    
-				<property name="poolMaximumActiveConnections" value="10"/>
-				<property name="poolMaximumIdleConnections" value="5"/>
-				<property name="poolMaximumCheckoutTime" value="20000"/>
-				<property name="poolTimeToWait" value="20000"/>
-				<property name="poolPingConnectionsNotUsedFor" value="0"/>
-				<property name="poolPingQuery" value="select 1"/>
-				<property name="poolPingEnabled" value="true"/>
-			</dataSource>   
+
+	<environments default="shopWriter">
+		<environment id="shopReader">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.shop.driverClass}" />
+				<property name="url" value="${jdbc.shop.reader.url}" />
+				<property name="username" value="${jdbc.shop.reader.username}" />
+				<property name="password" value="${jdbc.shop.reader.password}" />
+				<property name="poolMaximumActiveConnections" value="10" />
+				<property name="poolMaximumIdleConnections" value="5" />
+				<property name="poolMaximumCheckoutTime" value="20000" />
+				<property name="poolTimeToWait" value="20000" />
+				<property name="poolPingConnectionsNotUsedFor" value="0" />
+				<property name="poolPingQuery" value="select 1" />
+				<property name="poolPingEnabled" value="true" />
+			</dataSource>
 		</environment>
-		<environment id="visaWrite">   
-			<transactionManager type="JDBC"/>   
-			<dataSource type="POOLED" >     
-				<property name="driver" value="${jdbc.mall_visa.driverClass}"/>    
-				<property name="url" value="${jdbc.mall_visa.write.url}"/>   
-				<property name="username" value="${jdbc.mall_visa.write.username}" />
-				<property name="password" value="${jdbc.mall_visa.write.password}" />    
-				<property name="poolMaximumActiveConnections" value="10"/>
-				<property name="poolMaximumIdleConnections" value="5"/>
-				<property name="poolMaximumCheckoutTime" value="20000"/>
-				<property name="poolTimeToWait" value="20000"/>
-				<property name="poolPingConnectionsNotUsedFor" value="0"/>
-				<property name="poolPingQuery" value="select 1"/>
-				<property name="poolPingEnabled" value="true"/>
-			</dataSource>   
+		<environment id="shopWriter">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.shop.driverClass}" />
+				<property name="url" value="${jdbc.shop.write.url}" />
+				<property name="username" value="${jdbc.shop.write.username}" />
+				<property name="password" value="${jdbc.shop.write.password}" />
+				<property name="poolMaximumActiveConnections" value="10" />
+				<property name="poolMaximumIdleConnections" value="5" />
+				<property name="poolMaximumCheckoutTime" value="20000" />
+				<property name="poolTimeToWait" value="20000" />
+				<property name="poolPingConnectionsNotUsedFor" value="0" />
+				<property name="poolPingQuery" value="select 1" />
+				<property name="poolPingEnabled" value="true" />
+			</dataSource>
 		</environment>
 	</environments>
-	
+	<mappers>
+		<mapper resource="mapper/ShopUserMapper.xml" />
+	</mappers>
+
 </configuration>     
