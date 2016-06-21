@@ -33,14 +33,10 @@
 			<directory>src/main/resources</directory>
 			<outputDirectory>conf</outputDirectory>
 			<includes>
-				<include>jdbc.properties</include>
 				<include>mq.properties</include>
 				<include>log4j.properties</include>
 				<include>memcached.properties</include>
 				<include>second.properties</include>
-				<!--
-				<include>dubbo.properties</include>
-				 -->
 			</includes>
 			<filtered>true</filtered>
 		</fileSet>			
@@ -52,23 +48,7 @@
 			</includes>
 			<filtered>true</filtered>
 			<!-- 使用filtered可能导致中文乱码，设置encoding为UTF-8也没能成功处理 -->
-		</fileSet>
-		<fileSet>
-			<directory>src/main/resources/mapper</directory>
-			<outputDirectory>conf/mapper</outputDirectory>
-			<includes>
-				<include>*Mapper.xml</include>
-			</includes>
-			<filtered>false</filtered>
-		</fileSet>
-		<fileSet>
-			<directory>src/main/sql</directory>
-			<outputDirectory>sql</outputDirectory>
-			<includes>
-				<include>*.sql</include>
-			</includes>
-			<filtered>true</filtered>
-		</fileSet>		
+		</fileSet>	
 	</fileSets>
 	<dependencySets>
 		<dependencySet>
