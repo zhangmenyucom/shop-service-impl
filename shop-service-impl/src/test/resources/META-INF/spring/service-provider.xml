@@ -13,5 +13,7 @@
 
 	<dubbo:protocol name="dubbo" serialization="kryo" port="20552" />
 
-	<dubbo:service interface="com.taylor.api.amq.service.MessageSenderService" ref="sendQueueMessageImpl" protocol="dubbo" delay="-1" version="0.0.1" />
+	<dubbo:service interface="com.taylor.api.amq.service.MessageSenderService" ref="queueMessageSenderImpl" group="queue" protocol="dubbo" delay="-1" version="0.0.1" />
+	
+	<dubbo:service interface="com.taylor.api.amq.service.MessageSenderService" ref="topicMessageSenderImpl" group="topic" protocol="dubbo" delay="-1" version="0.0.1" />
 </beans>
